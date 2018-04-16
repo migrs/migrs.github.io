@@ -3,10 +3,10 @@
   <channel>
     <title>m.igrs.jp</title>
     <description>Dust In The Plain Text</description>
-    <link>http://localhost:4000//</link>
-    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Apr 2018 13:35:10 +0900</pubDate>
-    <lastBuildDate>Mon, 16 Apr 2018 13:35:10 +0900</lastBuildDate>
+    <link>http://m.igrs.jp//</link>
+    <atom:link href="http://m.igrs.jp//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 16 Apr 2018 14:47:33 +0900</pubDate>
+    <lastBuildDate>Mon, 16 Apr 2018 14:47:33 +0900</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -106,8 +106,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Mon, 17 Feb 2014 10:00:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2014/02/17/ec2-pssh/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2014/02/17/ec2-pssh/</guid>
+        <link>http://m.igrs.jp//blog/2014/02/17/ec2-pssh/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2014/02/17/ec2-pssh/</guid>
         
         
         <category>aws</category>
@@ -255,8 +255,8 @@ ec2-ssh web1 -t sudo service nginx restart
 &lt;p&gt;この記事には続きがあります。もっと便利な何かを紹介します。&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Mar 2013 09:00:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2013/03/14/ec2-ssh/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2013/03/14/ec2-ssh/</guid>
+        <link>http://m.igrs.jp//blog/2013/03/14/ec2-ssh/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2013/03/14/ec2-ssh/</guid>
         
         
         <category>aws</category>
@@ -305,8 +305,8 @@ ec2-ssh web1 -t sudo service nginx restart
 &lt;p&gt;腹が減っては何とやら、無事美味しいランチに辿りつけることを心よりお祈りしております。&lt;/p&gt;
 </description>
         <pubDate>Tue, 24 Jul 2012 08:00:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2012/07/24/lldecade-lunch-spots/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2012/07/24/lldecade-lunch-spots/</guid>
+        <link>http://m.igrs.jp//blog/2012/07/24/lldecade-lunch-spots/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2012/07/24/lldecade-lunch-spots/</guid>
         
         
         <category>lunch</category>
@@ -617,8 +617,8 @@ FUJI ROCK が&lt;a href=&quot;http://www.princehotels.co.jp/ski/naeba/&quot;&gt;
 &lt;p&gt;※このページは開催までの間、次第随時更新予定です。&lt;/p&gt;
 </description>
         <pubDate>Sat, 07 Jul 2012 05:45:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2012/07/07/jisan-valley-rock-festival-2012/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2012/07/07/jisan-valley-rock-festival-2012/</guid>
+        <link>http://m.igrs.jp//blog/2012/07/07/jisan-valley-rock-festival-2012/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2012/07/07/jisan-valley-rock-festival-2012/</guid>
         
         
         <category>festival</category>
@@ -844,8 +844,8 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 &lt;p&gt;彼が言ったように、私たちは Ruby を愛し、そこからいますぐ離れるようなことは無いが、それを分岐したり新しい物事をしようとすることは言語とそのエコシステムを改善するための素晴らしい方法であり、Elixir がそのことについてさらに考える手助けになることを期待している。&lt;/p&gt;
 </description>
         <pubDate>Mon, 12 Mar 2012 00:33:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2012/03/12/why-rubyists-should-try-elixir/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2012/03/12/why-rubyists-should-try-elixir/</guid>
+        <link>http://m.igrs.jp//blog/2012/03/12/why-rubyists-should-try-elixir/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2012/03/12/why-rubyists-should-try-elixir/</guid>
         
         
         <category>elixir</category>
@@ -853,6 +853,280 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
         <category>ruby</category>
         
         <category>translate</category>
+        
+      </item>
+    
+      <item>
+        <title>Pow をもっと便利に使うためのツール比較 - Powder / Powify Comparison</title>
+        <description>&lt;p&gt;Mac and Ruby なウェブ開発者必携、&lt;a href=&quot;http://37signals.com/&quot;&gt;37signals&lt;/a&gt; 謹製の非常に便利な &lt;a href=&quot;http://pow.cx&quot;&gt;Pow&lt;/a&gt; ですがみなさん活用してますか？&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; src=&quot;http://pow.cx/images/logo-pow.png&quot; width=&quot;410&quot; height=&quot;300&quot; alt=&quot;pow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;私はいわゆるプログラマーと呼ばれる人だけではなく、ウェブデザイナーな人たちにこそ活用して欲しいプロダクトだと思っているのですがそのことについては置いておいて（また別途）
+ここでは周辺ツールについて。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Pow 自体非常にシンプルでサードパーティツールの類はほとんど必要ないのですが、
+さらに便利に扱うためのツールが&lt;a href=&quot;http://pow.cx/manual.html&quot;&gt;マニュアル&lt;/a&gt;でいくつか&lt;a href=&quot;http://pow.cx/manual.html#section_4&quot;&gt;紹介&lt;/a&gt;されています。&lt;/p&gt;
+
+&lt;p&gt;ここにある二つのプロダクト
+(&lt;a href=&quot;https://github.com/Rodreegez/powder&quot;&gt;Powder&lt;/a&gt;/&lt;a href=&quot;https://github.com/sethvargo/powify&quot;&gt;Powify&lt;/a&gt;)
+が非常にクリソツ（死語）で何が違うのか一目では分からなかったので（自分の為にも）表にして比較してみた。&lt;/p&gt;
+
+&lt;p&gt;結論から言うと両者ほとんど同じ。Powify の方が若干高機能かな〜ってくらい。&lt;/p&gt;
+
+&lt;h2 id=&quot;powder--powify-comparison&quot;&gt;Powder / Powify Comparison&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th width=&quot;45%&quot; style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;https://github.com/Rodreegez/powder&quot;&gt;Powder&lt;/a&gt;&lt;/th&gt;
+      &lt;th width=&quot;55%&quot; style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;https://github.com/sethvargo/powify&quot;&gt;Powify&lt;/a&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody style=&quot;font-size:medium;&quot;&gt;
+    &lt;tr&gt;
+      &lt;th colspan=&quot;2&quot;&gt;&lt;strong style=&quot;font-size:x-large;&quot;&gt;Server Commands&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Install pow server ( &lt;small&gt;&lt;code&gt;curl get.pow.cx | sh&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder install&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server install&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Reinstall pow server&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server reinstall&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Update pow server&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server update&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Uninstall pow server ( &lt;small&gt;&lt;code&gt;curl get.pow.cx/uninstall.sh | sh&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder uninstall&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server uninstall&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;List all pow apps ( &lt;small&gt;&lt;code&gt;ls -l ~/.pow/&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder list&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server list&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Start the pow server ( &lt;small&gt;&lt;code&gt;launchctl load ~/Library/LaunchAgents/cx.pow.powd.plist&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder up&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server start&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Stop the pow server ( &lt;small&gt;&lt;code&gt;launchctl unload ~/Library/LaunchAgents/cx.pow.powd.plist&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder down&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server stop&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Restart the pow server&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server restart&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Updates hosts file to map pow domains to 127.0.0.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder host&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server host&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Removes pow domains from hostfile&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder unhost&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server unhost&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Shows current pow status&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder status&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server status&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Shows current pow configuration&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder config&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server config&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Tails the Pow log ( &lt;small&gt;&lt;code&gt;tail -f ~/Library/Logs/Pow/access.log&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify server logs&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;th colspan=&quot;2&quot;&gt;&lt;strong style=&quot;font-size:x-large;&quot;&gt;App Commands&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Create a pow app from the current directory ( &lt;small&gt;&lt;code&gt;ln -s `pwd` ~/.pow/[NAME]&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder link [NAME]&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify create [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Destroy the pow app served from the current directory ( &lt;small&gt;&lt;code&gt;rm ~/.pow/[name]&lt;/code&gt;&lt;/small&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder unlink [NAME]&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify destroy [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Clean up invalid symbolic link&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder cleanup&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Restart pow app ( &lt;small&gt;&lt;code&gt;touch tmp/restart.txt&lt;/code&gt;&lt;/small&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder restart&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify restart [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Always restart pow app ( &lt;small&gt;&lt;code&gt;touch tmp/always_restart.txt&lt;/code&gt;&lt;/small&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder always_restart&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify always_restart [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Reset restart settings ( &lt;small&gt;&lt;code&gt;rm tmp/always_restart.txt&lt;/code&gt;&lt;/small&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder no_restarts&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify always_restart_off [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Rename the pow app to [NAME]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify rename [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Run the this pow app in a different environment&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify env [ENV]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Open a pow in the browser&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder open&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify browse [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Tail the application logs ( &lt;small&gt;&lt;code&gt;tail -f ~/Library/Logs/Pow/apps/[NAME].log&lt;/code&gt;&lt;/small&gt; )&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder log&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powify logs [NAME]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Set this app as default (http://localhost/)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder default&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; style=&quot;color:#AAA;&quot;&gt;Remove current default app&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;powder un_default&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:0 0 10px 20px;&quot;&gt;&lt;code&gt;-&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+
+
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Non-Japanese な人向けに &lt;a href=&quot;https://gist.github.com/1615032&quot;&gt;gist&lt;/a&gt; も用意した。&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Powify には専用の管理アプリ(&lt;a href=&quot;https://github.com/sethvargo/powify.dev&quot;&gt;powify.dev&lt;/a&gt;)も用意されており、以下のコマンドで設置可能。
+(今のところPow情報表示するだけのシンプルなもの)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;powify utils install&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;powify utils reinstall&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;powify utils uninstall&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;敢えて言うなら、シンプルな Powder・高機能な Powify といった感じか？&lt;br /&gt;
+今のところ善し悪し微妙なので好き好きで！&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/marutanm/20110418/p1&quot;&gt;Rackアプリ開発するならPowはもう常識だよね～&lt;/a&gt; &lt;a href=&quot;http://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/marutanm/20110418/p1&quot;&gt;&lt;img style=&quot;border:none;&quot; src=&quot;http://b.hatena.ne.jp/entry/image/http://d.hatena.ne.jp/marutanm/20110418/p1&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 16 Jan 2012 09:30:00 +0900</pubDate>
+        <link>http://m.igrs.jp//blog/2012/01/16/powder-powify-comparison/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2012/01/16/powder-powify-comparison/</guid>
+        
+        
+        <category>pow</category>
         
       </item>
     
@@ -924,8 +1198,8 @@ advanced.]&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 06 Jan 2012 07:09:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2012/01/06/rack-server-pages-released/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2012/01/06/rack-server-pages-released/</guid>
+        <link>http://m.igrs.jp//blog/2012/01/06/rack-server-pages-released/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2012/01/06/rack-server-pages-released/</guid>
         
         
         <category>rack-server-pages</category>
@@ -950,8 +1224,8 @@ advanced.]&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 21 Dec 2011 11:17:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2011/12/21/gem-uninstall-all/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2011/12/21/gem-uninstall-all/</guid>
+        <link>http://m.igrs.jp//blog/2011/12/21/gem-uninstall-all/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2011/12/21/gem-uninstall-all/</guid>
         
         
         <category>ruby</category>
@@ -1074,8 +1348,8 @@ advanced.]&lt;/p&gt;
 彼は無事交換できたのであろうか。&lt;/p&gt;
 </description>
         <pubDate>Sun, 18 Dec 2011 02:35:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2011/12/18/fix-iphone4-home-button/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2011/12/18/fix-iphone4-home-button/</guid>
+        <link>http://m.igrs.jp//blog/2011/12/18/fix-iphone4-home-button/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2011/12/18/fix-iphone4-home-button/</guid>
         
         
         <category>iphone</category>
@@ -1211,79 +1485,13 @@ rake watch                 # Watch the site and regenerate when it changes
 
 </description>
         <pubDate>Sat, 17 Dec 2011 00:46:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2011/12/17/switching-to-octopress/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2011/12/17/switching-to-octopress/</guid>
+        <link>http://m.igrs.jp//blog/2011/12/17/switching-to-octopress/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2011/12/17/switching-to-octopress/</guid>
         
         
         <category>octopress</category>
         
         <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>DRBDボリュームのオンラインリサイズ</title>
-        <description>&lt;p&gt;Dual Primary で構成している状態だとオンラインリサイズ出来ないようなので(出来るようであれば教えてください！)、片方 Secondary に降格させてからリサイズすることになる。&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;リサイズ手順&quot;&gt;リサイズ手順&lt;/h2&gt;
-
-&lt;p&gt;両方のサーバ(sv1,sv2)で LVMパーティションの拡張をする&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sv1$ sudo lvextend -L +1G /dev/sys/drbd0
-sv2$ sudo lvextend -L +1G /dev/sys/drbd0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;片方を Secondary に降格&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sv2$ umount /mnt/drbd0
-sv2$ sudo drbdadm secondary r0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;drbdadm resize コマンドの実行。Primary のみで実行。(see &lt;a href=&quot;http://bit.ly/kj3Yk5&quot;&gt;リソースのサイズ変更&lt;/a&gt;)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sv1$ sudo drbdadm resize r0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;ファイルシステムの拡張(ocfs2の場合)。Primary のみで実行。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sv1$ sudo tunefs.ocfs2 -S /dev/drbd0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;これでリサイズ完了。&lt;/p&gt;
-
-&lt;p&gt;最後に一時降格した Secondary を Primary に昇格しマウントして終了&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sv2$ sudo drbdadm primary r0
-sv2$ mount /dev/drbd0 /mnt/drbd0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;サイズ確認方法&quot;&gt;サイズ確認方法&lt;/h2&gt;
-&lt;p&gt;上記手順中にて実際拡張されているか確認する方法&lt;/p&gt;
-
-&lt;p&gt;ブロックデバイスのサイズ確認
-    sudo blockdev –getsz /dev/sys/drbd0&lt;/p&gt;
-
-&lt;p&gt;マウントされているファイルシステムのサイズ確認
-    df -h&lt;/p&gt;
-
-&lt;h2 id=&quot;参考url&quot;&gt;参考URL&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://bit.ly/kj3Yk5&quot;&gt;リソースのサイズ変更&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://bit.ly/jMWKe1&quot;&gt;DRBD リソース・サイズを拡張&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 31 May 2011 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000//blog/2011/05/31/drbd-volume-online-resize/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/2011/05/31/drbd-volume-online-resize/</guid>
-        
-        
-        <category>drbd</category>
-        
-        <category>ocfs2</category>
-        
-        <category>lvm</category>
         
       </item>
     
