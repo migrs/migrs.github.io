@@ -5,18 +5,13 @@
     <description>Dust In The Plain Text</description>
     <link>http://m.igrs.jp//</link>
     <atom:link href="http://m.igrs.jp//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 Apr 2018 06:16:17 +0900</pubDate>
-    <lastBuildDate>Fri, 20 Apr 2018 06:16:17 +0900</lastBuildDate>
+    <pubDate>Fri, 20 Apr 2018 06:25:16 +0900</pubDate>
+    <lastBuildDate>Fri, 20 Apr 2018 06:25:16 +0900</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
-        <title>Setup Jekyll And Gitgub Pages</title>
-        <description>&lt;p&gt;–
-layout: post
-title: Setup Jekyll and GitHub Pages Again
-—&lt;/p&gt;
-
-&lt;p&gt;これまで&lt;a href=&quot;https://vps.sakura.ad.jp/&quot;&gt;さくらのVPS&lt;/a&gt;で運用していたのですが、更新忘れて契約が切れいつの間にかサーバ毎消えてしまっていました。
+        <title>Setup Jekyll and GitHub Pages Again</title>
+        <description>&lt;p&gt;これまで&lt;a href=&quot;https://vps.sakura.ad.jp/&quot;&gt;さくらのVPS&lt;/a&gt;で運用していたのですが、更新忘れて契約が切れいつの間にかサーバ毎消えてしまっていました。
 8ヶ月ほどサイトダウンしていたようです。
 それまで利用していた &lt;a href=&quot;http://octopress.org/&quot;&gt;Octopress&lt;/a&gt; もすっかり息を潜めたのでこれを気に原点に戻って素の &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; ベースで構築し直しました。&lt;/p&gt;
 
@@ -49,8 +44,8 @@ title: Setup Jekyll and GitHub Pages Again
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 20 Apr 2018 00:00:00 +0900</pubDate>
-        <link>http://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-gitgub-pages/</link>
-        <guid isPermaLink="true">http://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-gitgub-pages/</guid>
+        <link>http://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-github-pages/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-github-pages/</guid>
         
         
       </item>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    
+    <title>Setup Jekyll and GitHub Pages Again - m.igrs.jp</title>
+    
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" />
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    <header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="/">Home</a>
+        <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Setup Jekyll and GitHub Pages Again</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2018-04-20">20 Apr 2018</time>
+                
+            </section>
+        </header>
+
+<!--         <header class="post-header">
+            <a id="blog-logo" href="http://m.igrs.jp">
+                
+                    <span class="blog-title"></span>
+                
+            </a>
+        </header> -->
+
+        <!-- <span class="post-meta">
+            <time datetime="2018-04-20">20 Apr 2018</time>
+            
+        </span> -->
+
+        <!-- <h1 class="post-title">Setup Jekyll and GitHub Pages Again</h1> -->
+
+        <section class="post-content">
+            <p>これまで<a href="https://vps.sakura.ad.jp/">さくらのVPS</a>で運用していたのですが、更新忘れて契約が切れいつの間にかサーバ毎消えてしまっていました。
+8ヶ月ほどサイトダウンしていたようです。
+それまで利用していた <a href="http://octopress.org/">Octopress</a> もすっかり息を潜めたのでこれを気に原点に戻って素の <a href="https://jekyllrb.com/">Jekyll</a> ベースで構築し直しました。</p>
+
+<!--more-->
+
+<h2 id="構成">構成</h2>
+
+<p>今回はメンテナンスレスにしたかったので <a href="https://pages.github.com/">GitHub Pages</a> でホスティングすることにしました。</p>
+
+<p><code class="highlighter-rouge">_site =&gt; ../migrs.github.io</code></p>
+
+<p>のようシンボリックリンク貼って、コンテンツの出力先を GitHub Pages のディレクトリに設定しておき、あとは、</p>
+
+<ol>
+  <li>記事書いて</li>
+  <li><code class="highlighter-rouge">bundle exec jekyll build</code> して</li>
+  <li><code class="highlighter-rouge">migrs.github.io</code> で変更コミットして</li>
+  <li><code class="highlighter-rouge">git push</code></li>
+</ol>
+
+<p>で記事の公開完了です。</p>
+
+<p>最近、小ネタ溜まってきてるのでちょいちょい更新していこうかなと。</p>
+
+<h3 id="リポジトリ">リポジトリ</h3>
+
+<ul>
+  <li><a href="https://github.com/migrs/m.igrs.jp">Jekyll プロジェクト</a></li>
+  <li><a href="https://github.com/migrs/migrs.github.io">生成されたコンテンツ</a></li>
+</ul>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <!-- If we want to display author's name and bio -->
+            
+                <figure class="author-image">
+                    <a class="img" href="/" style="background-image: url(/assets/images/migrs.jpg)">
+                    <span class="hidden">Masato Igarashi's Picture</span></a>
+                </figure>
+                <section class="author">
+                    <!-- Author Name -->
+                    <h4> Masato Igarashi </h4>
+                    <!-- Author Bio -->
+                    <p>
+                        Here goes the author description. You might want to place some links too in here
+                    </p>
+                </section>
+            
+
+            <!-- Share links section -->
+            <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?text=Setup Jekyll and GitHub Pages Again&amp;url=http://m.igrs.jp/blog/2018/04/20/setup-jekyll-and-github-pages/"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://m.igrs.jp/blog/2018/04/20/setup-jekyll-and-github-pages/"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://m.igrs.jp/blog/2018/04/20/setup-jekyll-and-github-pages/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+            <!-- Disqus comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+    <footer class="site-footer clearfix">
+      <section class="copyright">
+        <a href="/">m.igrs.jp</a> &copy;
+              2018 &bull; All rights reserved.
+      </section>
+      <section class="poweredby">Made with Jekyll using
+        <a href="http://github.com/rosario/kasper">Kasper theme</a>
+      </section>
+    </footer>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Google Analytics Tracking code -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-655787-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</body>
+</html>
