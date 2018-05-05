@@ -5,9 +5,50 @@
     <description>Dust In The Plain Text</description>
     <link>http://m.igrs.jp//</link>
     <atom:link href="http://m.igrs.jp//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 Apr 2018 06:30:58 +0900</pubDate>
-    <lastBuildDate>Fri, 20 Apr 2018 06:30:58 +0900</lastBuildDate>
+    <pubDate>Sun, 06 May 2018 00:25:09 +0900</pubDate>
+    <lastBuildDate>Sun, 06 May 2018 00:25:09 +0900</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Goodbye Mac and Vim</title>
+        <description>&lt;p&gt;趣味的にいろんな OS やエディタに手を出しつつも、わりと長い間 Mac と Vim をメインの開発環境としてきたのだが、ここ最近その牙城が崩れ今ではすっかり &lt;a href=&quot;https://www.ubuntu.com/&quot;&gt;Ubuntu&lt;/a&gt; と &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VSCode&lt;/a&gt; 中心な環境にシフトした。&lt;/p&gt;
+
+&lt;p&gt;わりと長い間というのは十数年なので僕のエンジニア人生の大部分を占めることになり、一つの時代の変化を感じたので残しておきたい。&lt;/p&gt;
+
+&lt;h3 id=&quot;mac-に求めていたこと&quot;&gt;Mac に求めていたこと&lt;/h3&gt;
+
+&lt;p&gt;僕が開発環境として求めていたのは一言でいうと、&lt;br /&gt;
+&lt;strong&gt;「実用的な GUI を備えた UNIX 互換環境」&lt;/strong&gt;&lt;br /&gt;
+である。&lt;/p&gt;
+
+&lt;p&gt;当時(2000年代前半)、Windows + &lt;a href=&quot;https://www.cygwin.com/&quot;&gt;Cygwin&lt;/a&gt; (+ GVim) な環境で頑張っていたのだが、UNIX 互換環境としては制限が多く、一方UNIX互換環境としては完璧な Linux 系 OS も実用的な GUI を備えてなかったので常用するには厳しかった。
+そんな中、出てきた OS X(&lt;a href=&quot;https://www.apple.com/jp/macos/&quot;&gt;macOS&lt;/a&gt;)は両者を備えた環境として理想的で魅力的な存在だったし、ついでにカッコよかったので、&lt;a href=&quot;https://ja.wikipedia.org/wiki/Intel_Mac&quot;&gt;Intel Mac&lt;/a&gt; の到来と共に&lt;a href=&quot;http://d.hatena.ne.jp/mig50/20060520/1148772244&quot;&gt;僕は MacBook Pro を購入した&lt;/a&gt;。
+そしておそらく同じ理由で世界中の開発者もこぞって Mac を選び始めた。&lt;/p&gt;
+
+&lt;h3 id=&quot;求めるものの変化仮想化とクラウドの時代&quot;&gt;求めるものの変化〜仮想化とクラウドの時代&lt;/h3&gt;
+
+&lt;p&gt;時代と共に仮想化技術が発達し、開発環境として求めるものが UNIX 互換環境からコンテナ実行環境に変わってきた。
+&lt;a href=&quot;https://www.docker.com/docker-mac&quot;&gt;Docker for Mac&lt;/a&gt; などの存在はあるもののホストとのファイル共有において速度的なボトルネックが発生してしまうため快適に利用することは難しく、これは Windows においても同様である。
+となると選択肢としては Linux 系 OS しか無いのだが、 &lt;a href=&quot;https://www.ubuntu.com/&quot;&gt;Ubuntu&lt;/a&gt; でも &lt;a href=&quot;https://www.gentoo.org/&quot;&gt;Gentoo&lt;/a&gt; でも &lt;a href=&quot;https://www.archlinux.org/&quot;&gt;Arch Linux&lt;/a&gt; でもなんでも良いのだが一番使い慣れているということから Ubuntu を選択している。
+GUI としては、Win / Mac には劣るものの、一昔前に比べて様々なものがクラウド化しブラウザさえあればなんとかなるものが増えてきていることもあって実用性としては低くはない。&lt;/p&gt;
+
+&lt;h3 id=&quot;ハードウェアとしての-mac&quot;&gt;ハードウェアとしての Mac&lt;/h3&gt;
+
+&lt;p&gt;ハードウェアとしての Mac を考えてみると、&lt;a href=&quot;https://developer.apple.com/macos/touch-bar/&quot;&gt;Touch Bar&lt;/a&gt; が搭載されて以降、欲しいと思えるモデルがなくなってしまった。今では大多数の人が Mac を使う世の中になってしまったこともあり所有欲的なものも薄れてきた。
+一方、Windows マシンの方がバリエーション豊かでコストパフォーマンスもよく自分にあったマシン探しを楽しめる環境にある。（洗練された良いモデルは少ないが）&lt;/p&gt;
+
+&lt;p&gt;僕が今メインで利用しているのは &lt;a href=&quot;https://www3.lenovo.com/jp/ja/notebooks-new-splitter/ideapad/ideapad-700-series/Ideapad-720S-13-Intel/p/88IP70S0893&quot;&gt;Lenovo ideapad 720S (13.3インチ)&lt;/a&gt; だが 10万円切る価格で十分満足いくボディとスペックである。(できればメモリ16GB欲しいところではあるが)&lt;/p&gt;
+
+&lt;h3 id=&quot;エディタについて&quot;&gt;エディタについて&lt;/h3&gt;
+
+&lt;p&gt;常用エディタを Vim から Visual Studio Code にスイッチした件も書くつもりだったが長くなってきたので別に書くことにする。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 05 May 2018 00:00:00 +0900</pubDate>
+        <link>http://m.igrs.jp//blog/2018/05/05/goodbye-mac-and-vim/</link>
+        <guid isPermaLink="true">http://m.igrs.jp//blog/2018/05/05/goodbye-mac-and-vim/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Setup Jekyll and GitHub Pages Again</title>
@@ -1270,130 +1311,6 @@ advanced.]&lt;/p&gt;
         
         
         <category>ruby</category>
-        
-      </item>
-    
-      <item>
-        <title>iPhone4 のホームボタンを自分で交換するときに気をつけること</title>
-        <description>&lt;p&gt;さんざんデコピンとかしたけど全く効果なかったので交換したのが約１ヶ月半前。&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot;&gt;&lt;p&gt;部品いっぱい余ったり蓋閉まらなくなったりしたけど、ホームボタン治ったよ！！！！ &lt;a href=&quot;http://t.co/kNNaIdY7&quot; title=&quot;http://flic.kr/p/aBbf1F&quot;&gt;flic.kr/p/aBbf1F&lt;/a&gt;&lt;/p&gt;&amp;mdash; Masato Igarashi (@migrs) &lt;a href=&quot;https://twitter.com/migrs/status/131699224881545216&quot; data-datetime=&quot;2011-11-02T11:48:36+00:00&quot;&gt;November2, 2011&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;img class=&quot;right&quot; src=&quot;http://farm7.staticflickr.com/6212/6305286527_552e602eb7_m.jpg&quot; width=&quot;240&quot; height=&quot;180&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Assistive Touch 使って頑張ってる人もいるようですが、交換してからというものとにかく普通に使えることが快適でホームボタンが不調でなかったら感じることができなかった快感を得ることができます。&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;私はダメモト(ダメだったら4S買う理由にするつもり)で自分で修理したのですが&lt;strong&gt;ハッキリ言って修理業者頼んだ方がいい&lt;/strong&gt;です。
-(多分修理費5000-6000円くらいかな？)
-想像以上に詰まってる感じだった。修理過程において何度諦めようとしたことか。&lt;/p&gt;
-
-&lt;p&gt;ここではそんなモノ好きな人の為に、修理する際に参考にした
-&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/&quot;&gt;Installing iPhone 4 Home Button&lt;/a&gt; をベースに、
-気をつけた方が良いポイントについてメモしておきます。&lt;/p&gt;
-
-&lt;h2 id=&quot;買ったもの&quot;&gt;買ったもの&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.ires.jp/&quot;&gt;iRescue&lt;/a&gt; で購入した。(発注後なかなか届かなかったのでメールで催促したら慌てて発送してくれた。)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ires.jp/?pid=25567092&quot;&gt;iPhone 4 ホームボタン フレキシブルケーブル&lt;/a&gt; (税込み1155円)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img17.shop-pro.jp/PA01103/007/product/25567092.jpeg&quot; width=&quot;100&quot; height=&quot;100&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ires.jp/?pid=25567244&quot;&gt;iPhone/iPod 分解工具セット(iPhone4対応)&lt;/a&gt; (税込み945円)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img17.shop-pro.jp/PA01103/007/product/25567244.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;所要時間&quot;&gt;所要時間&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;分解１時間&lt;/li&gt;
-  &lt;li&gt;放心１時間&lt;/li&gt;
-  &lt;li&gt;組立１時間&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;合計３時間くらいみておいた方がいいです。&lt;/p&gt;
-
-&lt;h2 id=&quot;修理&quot;&gt;修理&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/&quot;&gt;Installing iPhone 4 Home Button&lt;/a&gt; の手順で進めていきます。&lt;/p&gt;
-
-&lt;h3 id=&quot;分解&quot;&gt;分解&lt;/h3&gt;
-&lt;p&gt;とにかくその精密さとパーツの多さに驚きながら分解します。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/2#s15368&quot;&gt;Step 6&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;結構剥しにくかった。しっかり糊付けされてます。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/3#s15378&quot;&gt;Step 7&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;SIM Card 取り出しツールは上記工具セットには含まれてないので注意。ペーパークリップでOK。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/6#s15383&quot;&gt;Step 16&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;小さな丸いシールは浸水チェッカーです。ここまできたら不要なので剥して捨てましょう。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/10#s15402&quot;&gt;Step 28&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;ここが個人的に分解時の最難関だった。とにかくフロントガラスが外れにくい。&lt;/li&gt;
-      &lt;li&gt;工具セットにあった、&lt;strong&gt;吸盤&lt;/strong&gt;と&lt;strong&gt;ギターピック&lt;/strong&gt;が活躍します。&lt;/li&gt;
-      &lt;li&gt;吸盤でガラスを持ち上げわずかに空いた隙間にギターピックを差し込みましょう。&lt;/li&gt;
-      &lt;li&gt;あとはギターピックをうまくずらしながら隙間を広げつつ吸盤使って慎重に外します。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/11#s15407&quot;&gt;Step 33&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;おつかれさまでした。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;放心&quot;&gt;放心&lt;/h3&gt;
-&lt;p&gt;分解されたパーツ群を眺め暫くぼーっとします。&lt;/p&gt;
-
-&lt;h3 id=&quot;組立&quot;&gt;組立&lt;/h3&gt;
-&lt;p&gt;分解の逆順を辿るだけなのですがここからが大変。ifixit では逆順の説明がなく何度も途方に来れた。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/10#s15404&quot;&gt;Step 30&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;フロントガラスを閉める際、間を通すケーブルがありますがケーブル自体を挟み込まないようしっかり通しましょう。&lt;/li&gt;
-      &lt;li&gt;ここでしっかり通しておかないと &lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/6#s15385&quot;&gt;Step 18&lt;/a&gt; で端子が嵌らなくなります。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/7#s15388&quot;&gt;Step 21&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;この黒い部品(スピーカー)をはめる時に、非常に小さな爪が4つ程あるのですが、これが非常にもろい。&lt;/li&gt;
-      &lt;li&gt;私は4本中3本折りました。。。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ifixit.com/Guide/Installing-iPhone-4-Home-Button/3144/5#s15381&quot;&gt;Step 14&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;ここから以降正確に嵌めないと最後にフタが閉まらなくなるのでぴったり組み立ててください。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ということで&quot;&gt;ということで&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/migrsy/6305286527/&quot;&gt;この写真&lt;/a&gt;にもあるようにネジやパーツは数点あまりましたが一応何も問題無く動いています。
-組み立て終わって電源入ったりタッチできたり通話できたり写真とれたり正常に機能したときの感動は忘れられません。&lt;/p&gt;
-
-&lt;p&gt;この記事は主に友人S君に捧げるようともっと前に書きたかった内容だったのだが遅くなってしまった。
-彼は無事交換できたのであろうか。&lt;/p&gt;
-</description>
-        <pubDate>Sun, 18 Dec 2011 02:35:00 +0900</pubDate>
-        <link>http://m.igrs.jp//blog/2011/12/18/fix-iphone4-home-button/</link>
-        <guid isPermaLink="true">http://m.igrs.jp//blog/2011/12/18/fix-iphone4-home-button/</guid>
-        
-        
-        <category>iphone</category>
         
       </item>
     
