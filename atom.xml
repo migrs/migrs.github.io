@@ -5,9 +5,117 @@
     <description>Dust In The Plain Text</description>
     <link>https://m.igrs.jp//</link>
     <atom:link href="https://m.igrs.jp//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 May 2018 20:24:33 +0900</pubDate>
-    <lastBuildDate>Sun, 06 May 2018 20:24:33 +0900</lastBuildDate>
+    <pubDate>Mon, 07 May 2018 21:20:41 +0700</pubDate>
+    <lastBuildDate>Mon, 07 May 2018 21:20:41 +0700</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Goodbye Vim?</title>
+        <description>&lt;p&gt;&lt;a href=&quot;/blog/2018/05/05/goodbye-mac-and-vim/&quot;&gt;前記事&lt;/a&gt;の続き。
+Vim に関しては Mac よりも長い付き合いである。&lt;/p&gt;
+
+&lt;p&gt;主にコーディング用のエディタとして GVim をメインに利用してきたが、これまで新しいエディタが出ては試して、そして結局 GVim に戻っての繰り返しだった。&lt;/p&gt;
+
+&lt;p&gt;ここであえてコーディング用としているのは、コーディング用とライティング用とでエディタを使い分けているからである。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;コーディング用
+    &lt;ul&gt;
+      &lt;li&gt;プログラミング等&lt;/li&gt;
+      &lt;li&gt;全体を眺めて考えたりする時間が長い&lt;/li&gt;
+      &lt;li&gt;新規入力より編集が多い&lt;/li&gt;
+      &lt;li&gt;日本語の入力が少ない&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ライティング用
+    &lt;ul&gt;
+      &lt;li&gt;メール・議事録・メモ等&lt;/li&gt;
+      &lt;li&gt;思いついたらすぐ入力&lt;/li&gt;
+      &lt;li&gt;新規入力が多い&lt;/li&gt;
+      &lt;li&gt;日本語の入力が多い&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみに &lt;a href=&quot;https://www.jetbrains.com/idea/&quot;&gt;IntelliJ IDEA&lt;/a&gt; や &lt;a href=&quot;https://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; などの &lt;a href=&quot;https://ja.wikipedia.org/wiki/%E7%B5%B1%E5%90%88%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83&quot;&gt;IDE&lt;/a&gt; はエディタとして含めていない。IDE とエディタは別物だ。&lt;/p&gt;
+
+&lt;h3 id=&quot;モダンエディタの登場&quot;&gt;モダンエディタの登場&lt;/h3&gt;
+
+&lt;p&gt;Vim / Emacs 以外の選択肢としてのモダンエディタ的な存在は &lt;a href=&quot;https://macromates.com/&quot;&gt;TextMate&lt;/a&gt; が走りだったと記憶している。
+イケてる Web エンジニアは Mac 使って &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt; でアジャイル開発していて、動画で紹介されるチュートリアルではなにやらモダンでいかにも便利そうなエディタを華麗に操り、このエディタとフレームワークさえ使えば誰もが幸せになれるのではないかと世界中のエンジニアが思ったものだが、その時のエディタが TextMate だった。&lt;/p&gt;
+
+&lt;p&gt;以降、登場したモダンエディタとしては以下が代表的なものとして挙げられるだろう。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://macromates.com/&quot;&gt;TextMate&lt;/a&gt; (2004) Mac Only&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt; (2008)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://atom.io/&quot;&gt;Atom&lt;/a&gt; (2014)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt; (2015)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;どれも Vim に変わる存在としての可能性を探るために、それなりに使っては評価してきたが、1ヶ月も続かないものばかりだった。リリース当初だけの評価ではなく、それぞれ継続的にメジャーバージョンアップが行われる度に乗り換えては評価してきた。&lt;/p&gt;
+
+&lt;h3 id=&quot;コーディング用のエディタに求めること&quot;&gt;コーディング用のエディタに求めること&lt;/h3&gt;
+
+&lt;p&gt;ここで僕がコーディング用のエディタに対して求めることを整理しておくと、以下がポイントとなる。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Vim キーバインド&lt;/li&gt;
+  &lt;li&gt;軽量さ・軽快さ&lt;/li&gt;
+  &lt;li&gt;クロスプラットフォーム&lt;/li&gt;
+  &lt;li&gt;拡張性&lt;/li&gt;
+  &lt;li&gt;将来性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そう、僕が一番大切にしているのは Vim ライクな操作ができるかどうかであって、結局 Vim からは脱却できていないのだ。&lt;/p&gt;
+
+&lt;p&gt;なぜ Vim を使い続けてきたかというと一番快適に Vim キーバインドが使えるエディタが Vim だったというだけの理由である。次点で、軽量さ・軽快さ・クロスプラットホームをクリアーしているからだ。
+拡張性・将来性に関しては Atom / VSCode あたりの方が高くみえるし、そうみえるから乗り換えようとしている。&lt;/p&gt;
+
+&lt;p&gt;最近のモダンエディタは質の差はあれど Vim ライクなキーバインドを実現するプラグインは大抵存在する。Atom に関してはどうも軽量さ・軽快さに欠けていたので、一通り条件をクリアーしてそうなエディタとして VSCode に可能性を求めることにした。 (Sublime Text 3 に関しては最近評価できてないのでもしかしたら可能性あるかもしれないけど、現時点ではあまり興味ない)&lt;/p&gt;
+
+&lt;h3 id=&quot;visual-studio-code-の所感&quot;&gt;Visual Studio Code の所感&lt;/h3&gt;
+
+&lt;p&gt;まず軽量さについては、Vim のそれには圧倒的に劣るが他のモダンエディタに比べてもかなり軽い部類だ。拡張性については Vim に比べて用意されている UI コンポーネントが多いこともあって UI 的な表現力が高く、またそれを &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt; で書けるのは &lt;a href=&quot;https://ja.wikipedia.org/wiki/Vim_script&quot;&gt;Vim script&lt;/a&gt; と異なり馴染みがあってとっかかりやすい。
+Vim キーバインドについては &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot;&gt;VSCodeVim&lt;/a&gt; がなかなか頑張っていて他エディタの Vim プラグインより出来がよい方だと感じたし、割と違和感なく使えるものになっている。&lt;/p&gt;
+
+&lt;p&gt;総合的な所感としては、Vim を超えているというよりは Vim が無くても生きていける環境がようやくできたという感触。一応コーディング用のエディタに求めるものは一通り揃っていて、実際ここ１ヶ月くらいはほぼ VSCode だけで生きていけている。&lt;/p&gt;
+
+&lt;p&gt;Visual Studio Code の微妙な点としては、&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;日本語の単語区切りに対応していない&lt;/li&gt;
+  &lt;li&gt;VSCodeVim について
+    &lt;ul&gt;
+      &lt;li&gt;undo / redo の挙動がおかしい&lt;/li&gt;
+      &lt;li&gt;Multi Cursor が考慮されてない&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などがあって割とツラいのだがなんとかしのいでいる。&lt;/p&gt;
+
+&lt;p&gt;いざとなったら &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=jonsmithers.open-in-vim&quot;&gt;Open in Vim&lt;/a&gt; というプラグインがあるのでいつでも本物の Vim に逃げることはできる。&lt;/p&gt;
+
+&lt;p&gt;なので、暫く VSCode メインで使っていこうとは思っているが Vim も引き続き使っていくことにはなりそうだ。&lt;/p&gt;
+
+&lt;p&gt;Vim は不滅だ。&lt;/p&gt;
+
+&lt;h3 id=&quot;ライティング用のエディタについて&quot;&gt;ライティング用のエディタについて&lt;/h3&gt;
+
+&lt;p&gt;かなり特殊な例なのかもしれないけど、僕はコーディングの時は Vim、メール・メモなどの文章を書く時は Emacs を使いたいのだ。
+これもまた本物の Emacs である必要はなくて、Emacs キーバインドが使えれば良いだけなんだけど、これに関しての話もいろいろあるのでまた別記事で書きたいと思う。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 May 2018 10:00:00 +0700</pubDate>
+        <link>https://m.igrs.jp//blog/2018/05/06/goodbye-vim/</link>
+        <guid isPermaLink="true">https://m.igrs.jp//blog/2018/05/06/goodbye-vim/</guid>
+        
+        
+        <category>vim</category>
+        
+        <category>vscode</category>
+        
+      </item>
     
       <item>
         <title>Goodbye Mac and Vim</title>
@@ -43,10 +151,18 @@ GUI としては、Win / Mac には劣るものの、一昔前に比べて様々
 
 &lt;p&gt;常用エディタを GVim から Visual Studio Code にスイッチした件も書くつもりだったが長くなってきたので別に書くことにする。&lt;/p&gt;
 </description>
-        <pubDate>Sat, 05 May 2018 00:00:00 +0900</pubDate>
+        <pubDate>Sat, 05 May 2018 10:00:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2018/05/05/goodbye-mac-and-vim/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2018/05/05/goodbye-mac-and-vim/</guid>
         
+        
+        <category>mac</category>
+        
+        <category>vim</category>
+        
+        <category>ubuntu</category>
+        
+        <category>vscode</category>
         
       </item>
     
@@ -84,10 +200,12 @@ GUI としては、Win / Mac には劣るものの、一昔前に比べて様々
   &lt;li&gt;&lt;a href=&quot;https://github.com/migrs/migrs.github.io&quot;&gt;生成されたコンテンツ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 20 Apr 2018 00:00:00 +0900</pubDate>
+        <pubDate>Fri, 20 Apr 2018 10:00:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-github-pages/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-github-pages/</guid>
         
+        
+        <category>jekyll</category>
         
       </item>
     
@@ -187,7 +305,7 @@ GUI としては、Win / Mac には劣るものの、一昔前に比べて様々
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat ~/.ssh/id_rsa.pub | ssh -i ~/ec2.pem ec2-user@`ec2-host hoge` 'cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
-        <pubDate>Mon, 17 Feb 2014 10:00:00 +0900</pubDate>
+        <pubDate>Mon, 17 Feb 2014 08:00:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2014/02/17/ec2-pssh/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2014/02/17/ec2-pssh/</guid>
         
@@ -336,7 +454,7 @@ ec2-ssh web1 -t sudo service nginx restart
 
 &lt;p&gt;この記事には続きがあります。もっと便利な何かを紹介します。&lt;/p&gt;
 </description>
-        <pubDate>Thu, 14 Mar 2013 09:00:00 +0900</pubDate>
+        <pubDate>Thu, 14 Mar 2013 09:00:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2013/03/14/ec2-ssh/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2013/03/14/ec2-ssh/</guid>
         
@@ -386,7 +504,7 @@ ec2-ssh web1 -t sudo service nginx restart
 
 &lt;p&gt;腹が減っては何とやら、無事美味しいランチに辿りつけることを心よりお祈りしております。&lt;/p&gt;
 </description>
-        <pubDate>Tue, 24 Jul 2012 08:00:00 +0900</pubDate>
+        <pubDate>Tue, 24 Jul 2012 08:00:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2012/07/24/lldecade-lunch-spots/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/07/24/lldecade-lunch-spots/</guid>
         
@@ -698,7 +816,7 @@ FUJI ROCK が&lt;a href=&quot;http://www.princehotels.co.jp/ski/naeba/&quot;&gt;
 
 &lt;p&gt;※このページは開催までの間、次第随時更新予定です。&lt;/p&gt;
 </description>
-        <pubDate>Sat, 07 Jul 2012 05:45:00 +0900</pubDate>
+        <pubDate>Sat, 07 Jul 2012 05:45:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2012/07/07/jisan-valley-rock-festival-2012/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/07/07/jisan-valley-rock-festival-2012/</guid>
         
@@ -925,7 +1043,7 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 
 &lt;p&gt;彼が言ったように、私たちは Ruby を愛し、そこからいますぐ離れるようなことは無いが、それを分岐したり新しい物事をしようとすることは言語とそのエコシステムを改善するための素晴らしい方法であり、Elixir がそのことについてさらに考える手助けになることを期待している。&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Mar 2012 00:33:00 +0900</pubDate>
+        <pubDate>Mon, 12 Mar 2012 00:33:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2012/03/12/why-rubyists-should-try-elixir/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/03/12/why-rubyists-should-try-elixir/</guid>
         
@@ -1203,7 +1321,7 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 &lt;/ul&gt;
 
 </description>
-        <pubDate>Mon, 16 Jan 2012 09:30:00 +0900</pubDate>
+        <pubDate>Mon, 16 Jan 2012 09:30:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2012/01/16/powder-powify-comparison/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/01/16/powder-powify-comparison/</guid>
         
@@ -1279,36 +1397,12 @@ advanced.]&lt;/p&gt;
 &lt;p&gt;まだまだ発展途上ですが、問題・不具合あれば&lt;a href=&quot;https://github.com/inbox/new/migrs&quot;&gt;連絡&lt;/a&gt;・&lt;a href=&quot;https://github.com/migrs/rack-server-pages/issues&quot;&gt;フィードバック&lt;/a&gt;お願いします。&lt;/p&gt;
 
 </description>
-        <pubDate>Fri, 06 Jan 2012 07:09:00 +0900</pubDate>
+        <pubDate>Fri, 06 Jan 2012 07:09:00 +0700</pubDate>
         <link>https://m.igrs.jp//blog/2012/01/06/rack-server-pages-released/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/01/06/rack-server-pages-released/</guid>
         
         
         <category>rack-server-pages</category>
-        
-        <category>ruby</category>
-        
-      </item>
-    
-      <item>
-        <title>全ての gem をアンインストール</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--all-installed&lt;/code&gt; 的なオプションがありそうでないのでメモ&lt;br /&gt;
-(&lt;code class=&quot;highlighter-rouge&quot;&gt;--all&lt;/code&gt; はあるけど特定の gem のすべてのバージョンを削除の意味)&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem uninstall &lt;span class=&quot;nt&quot;&gt;-axI&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;gem list &lt;span class=&quot;nt&quot;&gt;--no-versions&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://rubygems.org/&quot;&gt;rubygems&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Wed, 21 Dec 2011 11:17:00 +0900</pubDate>
-        <link>https://m.igrs.jp//blog/2011/12/21/gem-uninstall-all/</link>
-        <guid isPermaLink="true">https://m.igrs.jp//blog/2011/12/21/gem-uninstall-all/</guid>
-        
         
         <category>ruby</category>
         
