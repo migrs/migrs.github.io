@@ -5,18 +5,189 @@
     <description>Dust In The Plain Text</description>
     <link>https://m.igrs.jp//</link>
     <atom:link href="https://m.igrs.jp//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 May 2018 21:20:41 +0700</pubDate>
-    <lastBuildDate>Mon, 07 May 2018 21:20:41 +0700</lastBuildDate>
-    <generator>Jekyll v3.7.3</generator>
+    <pubDate>Sun, 15 Dec 2019 07:35:43 +0900</pubDate>
+    <lastBuildDate>Sun, 15 Dec 2019 07:35:43 +0900</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Vimacs - VS Code で Vim と Emacs のいいとこどり</title>
+        <description>&lt;p&gt;昨年からメインエディターを &lt;a href=&quot;http://localhost:4000/blog/2018/05/06/goodbye-vim/&quot;&gt;Vim から VS Code に移行した&lt;/a&gt;のですが、やはり Vim キーバインドからは逃れられず基本的には &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot;&gt;Vim 拡張&lt;/a&gt; を利用して過ごしています。&lt;/p&gt;
+
+&lt;p&gt;また普段の Vim ではインサートモード時に基本的な Emacs キーバインディングを使えるようにカスタマイズしているのですが、それは別途キーバインディングファイル（&lt;code class=&quot;highlighter-rouge&quot;&gt;keybindings.json&lt;/code&gt;）をカスタマイズすることで実現できていました。&lt;/p&gt;
+
+&lt;p&gt;今回は、そんなニッチな設定だけど同じようなことをしている人は他にもいるはずだし、オススメのスタイルなのでぜひみんなにも使って欲しいという思いから VS Code 拡張を作ったので紹介します。&lt;/p&gt;
+
+&lt;h2 id=&quot;vimacs-for-vs-code&quot;&gt;Vimacs for VS Code&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/migrs/vscode-vimacs/master/images/icon.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot;&gt;VSCodeVim&lt;/a&gt; のインサートモードで基本的な Emacs キーバインディングを利用できるようにする VS Code 拡張です。
+（&lt;em&gt;VSCodeVim&lt;/em&gt; のアイコンをベースにしてますが、作者から許可は得ています）&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=migrs.vimacs#review-details&quot;&gt;Vimacs for VS Code&lt;/a&gt; (Visual Studio Code Marketplace)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/migrs/vscode-vimacs&quot;&gt;vscode-vimacs&lt;/a&gt; (GitHub)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;original-vimacs&quot;&gt;Original Vimacs&lt;/h3&gt;
+
+&lt;p&gt;Vimacs という名前ですがもともと Vim Plugin として同様の名前のものがありました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://algorithm.com.au/code/vimacs/&quot;&gt;Vimacs: Vim-Improved Emacs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/andrep/vimacs&quot;&gt;github.com/andrep/vimacs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンセプトがほぼ同じということで &lt;em&gt;for VS Code&lt;/em&gt; として名前を継承しつつ、よりシンプルな実装としました。&lt;/p&gt;
+
+&lt;h3 id=&quot;why-use-vimacs&quot;&gt;Why use Vimacs?&lt;/h3&gt;
+
+&lt;p&gt;Vim の最大の特徴はノーマルモードやブロックモードにおけるキーバインディングにあると思っていて、学習ハードルは高いものの一度その操作に慣れるとテキスト編集ツールとしては右に出るものがないくらい強力なツールとしてその威力を発揮します。&lt;/p&gt;
+
+&lt;p&gt;一方、インサートモードの実装は非常にシンプルで、ノーマルモードで編集することを前提としているのでコンセプトとしては理解できるのですが、入力・修正を繰り返すようなテキスト編集を行う際に頻度の高いモード切替は煩わしく感じることがあります。&lt;/p&gt;
+
+&lt;p&gt;また、macOS のほぼすべてのテキスト編集コンポーネントではシンプルな Emacs キーバインドが利用できるようになっていたり、シェル操作でも Emacs ベースなものが標準的になっていたりすることもあって、文字入力においては Emacs キーバインドの方が慣れ親しまれたものとなっています。&lt;/p&gt;
+
+&lt;p&gt;ということで、Vim のインサートモードのときに基本的な Emacs キーバインディングが利用できるようにすることで両者のメリットをいいところどりしてちょっと幸せになれるハイブリッドスタイルを提唱します。&lt;/p&gt;
+
+&lt;h3 id=&quot;やりたいこと&quot;&gt;やりたいこと&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ベースの環境としては VS Code を使いたい&lt;/li&gt;
+  &lt;li&gt;カーソル操作は Vim キーバインドを使いたい&lt;/li&gt;
+  &lt;li&gt;文字入力時は Emacs キーバインドを使いたい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;-&lt;/th&gt;
+      &lt;th&gt;命令&lt;/th&gt;
+      &lt;th&gt;編集&lt;/th&gt;
+      &lt;th&gt;入力&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Command Mode&lt;/td&gt;
+      &lt;td&gt;Normal/Visual Mode&lt;/td&gt;
+      &lt;td&gt;Insert Mode&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;em&gt;Vimacs&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;VS Code&lt;/td&gt;
+      &lt;td&gt;Vim&lt;/td&gt;
+      &lt;td&gt;Emacs&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Vim がコンテキストごとに各モードを使い分けるのと同じよな感覚でに各エディターを使い分けるイメージです。&lt;/p&gt;
+
+&lt;h3 id=&quot;コンセプト&quot;&gt;コンセプト&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;コマンド系のキーバインドは VS Code 標準のものを利用する&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;VSCodeVim&lt;/em&gt; をベースとして基本的にインサートモードのときだけ Emacs キーバインドを定義&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;できること&quot;&gt;できること&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;インサートモードで基本的な Emacs キーバインディングが使える&lt;/li&gt;
+  &lt;li&gt;カーソル移動以外ではリージョン操作系にも対応&lt;/li&gt;
+  &lt;li&gt;VS Code のコマンド入力やファイル選択のUIでも &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+N&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+P&lt;/code&gt; などのカーソル移動に対応&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;てきてないこと&quot;&gt;てきてないこと&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;キーバインディングが重複定義されたときの優先順の制御の仕様がよくわかっておらず、意図通り動かないキーバインディングがいくつかある
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;keybindings.json&lt;/code&gt; の方で再度定義したり邪魔なものを無効にしたりすることで回避している&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Column Region Mode も実装してみたのですがまともに動いてなかったのでいったん取り下げてます&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pull Request お待ちしております&lt;/p&gt;
+
+&lt;h3 id=&quot;設定例&quot;&gt;設定例&lt;/h3&gt;
+
+&lt;p&gt;参考までに私の &lt;em&gt;VSCodeVim&lt;/em&gt; 個人設定（&lt;code class=&quot;highlighter-rouge&quot;&gt;settings.json&lt;/code&gt;）では以下のような設定となっています。Vimacs 独自の設定項目はとくにありません。&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.useCtrlKeys&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.overrideCopy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.hlsearch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.useSystemClipboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.visualstar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.handleKeys&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-f&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-b&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-u&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-r&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-v&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-[&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&amp;lt;C-w&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.cursorStylePerMode.normal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;block&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.cursorStylePerMode.insert&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;line-thin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.cursorStylePerMode.replace&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;block-outline&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vim.statusBarColorControl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;その他注意点&quot;&gt;その他注意点&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;VSCodeVim&lt;/em&gt; の Undo 履歴管理はちょっと挙動があやしいので VS Code 標準のキーバインド（&lt;code class=&quot;highlighter-rouge&quot;&gt;Cmd+Z&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Cmd+Shift+Z&lt;/code&gt;）を利用するのがオススメです&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;公開後の反応&quot;&gt;公開後の反応&lt;/h2&gt;
+
+&lt;p&gt;昨年ひっそりリリースしてから1年以上経っているわけですが、ありがたいことに反応もあったようなのでいくつかピックアップしておきます。&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/%E4%BB%8A%E6%97%A5%E3%81%AEVSCode?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#今日のVSCode&lt;/a&gt;&lt;br /&gt;Extensionをながめていたらviemacsというすてきなものがあった。Vim+Emacsである。&lt;a href=&quot;https://t.co/fQgcDc2pgz&quot;&gt;https://t.co/fQgcDc2pgz&lt;/a&gt;&lt;/p&gt;&amp;mdash; 結城浩 (@hyuki) &lt;a href=&quot;https://twitter.com/hyuki/status/1083686907203117056?ref_src=twsrc%5Etfw&quot;&gt;January 11, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;なんと、あの結城先生が言及してくれているではないですか！！（感激）&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;VimacsはVimでEmacsｷｰﾊﾞｲﾝﾄﾞを使えるようにするやつだけど、VSCodeでVimのｷｰﾊﾞｲﾝﾄﾞをやるやつは活発に作られてるけど、Emacsのはなんか今いちだから（？）VSCodeのVimプラグインの上に乗っかったVimacsが出てきた…？&lt;/p&gt;&amp;mdash; Hideyuki Tanaka (@tanakh) &lt;a href=&quot;https://twitter.com/tanakh/status/1019622585074503680?ref_src=twsrc%5Etfw&quot;&gt;July 18, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;理由はちょっと違いますが・・・&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=migrs.vimacs&amp;amp;ssr=false#review-details&quot;&gt;&lt;img src=&quot;/assets/images/posts/1bd494a8576c3fe73994e5da7388c81d.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+少ないですがポジティブなレビューはやはり嬉しいものです&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 Dec 2019 12:00:00 +0900</pubDate>
+        <link>https://m.igrs.jp//blog/2019/12/14/vimacs-for-vscode/</link>
+        <guid isPermaLink="true">https://m.igrs.jp//blog/2019/12/14/vimacs-for-vscode/</guid>
+        
+        
+        <category>vscode</category>
+        
+        <category>vim</category>
+        
+        <category>emacs</category>
+        
+        <category>vimacs</category>
+        
+      </item>
     
       <item>
         <title>Goodbye Vim?</title>
         <description>&lt;p&gt;&lt;a href=&quot;/blog/2018/05/05/goodbye-mac-and-vim/&quot;&gt;前記事&lt;/a&gt;の続き。
 Vim に関しては Mac よりも長い付き合いである。&lt;/p&gt;
 
-&lt;p&gt;主にコーディング用のエディタとして GVim をメインに利用してきたが、これまで新しいエディタが出ては試して、そして結局 GVim に戻っての繰り返しだった。&lt;/p&gt;
+&lt;p&gt;主にコーディング用のエディターとして GVim をメインに利用してきたが、これまで新しいエディターが出ては試して、そして結局 GVim に戻っての繰り返しだった。&lt;/p&gt;
 
-&lt;p&gt;ここであえてコーディング用としているのは、コーディング用とライティング用とでエディタを使い分けているからである。&lt;/p&gt;
+&lt;p&gt;ここであえてコーディング用としているのは、コーディング用とライティング用とでエディターを使い分けているからである。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;コーディング用
@@ -37,14 +208,14 @@ Vim に関しては Mac よりも長い付き合いである。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;ちなみに &lt;a href=&quot;https://www.jetbrains.com/idea/&quot;&gt;IntelliJ IDEA&lt;/a&gt; や &lt;a href=&quot;https://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; などの &lt;a href=&quot;https://ja.wikipedia.org/wiki/%E7%B5%B1%E5%90%88%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83&quot;&gt;IDE&lt;/a&gt; はエディタとして含めていない。IDE とエディタは別物だ。&lt;/p&gt;
+&lt;p&gt;ちなみに &lt;a href=&quot;https://www.jetbrains.com/idea/&quot;&gt;IntelliJ IDEA&lt;/a&gt; や &lt;a href=&quot;https://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; などの &lt;a href=&quot;https://ja.wikipedia.org/wiki/%E7%B5%B1%E5%90%88%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83&quot;&gt;IDE&lt;/a&gt; はエディターとして含めていない。IDE とエディターは別物だ。&lt;/p&gt;
 
-&lt;h3 id=&quot;モダンエディタの登場&quot;&gt;モダンエディタの登場&lt;/h3&gt;
+&lt;h3 id=&quot;モダンエディターの登場&quot;&gt;モダンエディターの登場&lt;/h3&gt;
 
-&lt;p&gt;Vim / Emacs 以外の選択肢としてのモダンエディタ的な存在は &lt;a href=&quot;https://macromates.com/&quot;&gt;TextMate&lt;/a&gt; が走りだったと記憶している。
-イケてる Web エンジニアは Mac 使って &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt; でアジャイル開発していて、動画で紹介されるチュートリアルではなにやらモダンでいかにも便利そうなエディタを華麗に操り、このエディタとフレームワークさえ使えば誰もが幸せになれるのではないかと世界中のエンジニアが思ったものだが、その時のエディタが TextMate だった。&lt;/p&gt;
+&lt;p&gt;Vim / Emacs 以外の選択肢としてのモダンエディター的な存在は &lt;a href=&quot;https://macromates.com/&quot;&gt;TextMate&lt;/a&gt; が走りだったと記憶している。
+イケてる Web エンジニアは Mac 使って &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt; でアジャイル開発していて、動画で紹介されるチュートリアルではなにやらモダンでいかにも便利そうなエディターを華麗に操り、このエディターとフレームワークさえ使えば誰もが幸せになれるのではないかと世界中のエンジニアが思ったものだが、その時のエディターが TextMate だった。&lt;/p&gt;
 
-&lt;p&gt;以降、登場したモダンエディタとしては以下が代表的なものとして挙げられるだろう。&lt;/p&gt;
+&lt;p&gt;以降、登場したモダンエディターとしては以下が代表的なものとして挙げられるだろう。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://macromates.com/&quot;&gt;TextMate&lt;/a&gt; (2004) Mac Only&lt;/li&gt;
@@ -53,11 +224,11 @@ Vim に関しては Mac よりも長い付き合いである。&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt; (2015)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;どれも Vim に変わる存在としての可能性を探るために、それなりに使っては評価してきたが、1ヶ月も続かないものばかりだった。リリース当初だけの評価ではなく、それぞれ継続的にメジャーバージョンアップが行われる度に乗り換えては評価してきた。&lt;/p&gt;
+&lt;p&gt;どれも Vim に変わる存在としての可能性を探るために、それなりに使っては評価してきたが、1か月も続かないものばかりだった。リリース当初だけの評価ではなく、それぞれ継続的にメジャーバージョンアップが行われる度に乗り換えては評価してきた。&lt;/p&gt;
 
-&lt;h3 id=&quot;コーディング用のエディタに求めること&quot;&gt;コーディング用のエディタに求めること&lt;/h3&gt;
+&lt;h3 id=&quot;コーディング用のエディターに求めること&quot;&gt;コーディング用のエディターに求めること&lt;/h3&gt;
 
-&lt;p&gt;ここで僕がコーディング用のエディタに対して求めることを整理しておくと、以下がポイントとなる。&lt;/p&gt;
+&lt;p&gt;ここで僕がコーディング用のエディターに対して求めることを整理しておくと、以下がポイントとなる。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Vim キーバインド&lt;/li&gt;
@@ -69,23 +240,23 @@ Vim に関しては Mac よりも長い付き合いである。&lt;/p&gt;
 
 &lt;p&gt;そう、僕が一番大切にしているのは Vim ライクな操作ができるかどうかであって、結局 Vim からは脱却できていないのだ。&lt;/p&gt;
 
-&lt;p&gt;なぜ Vim を使い続けてきたかというと一番快適に Vim キーバインドが使えるエディタが Vim だったというだけの理由である。次点で、軽量さ・軽快さ・クロスプラットホームをクリアーしているからだ。
-拡張性・将来性に関しては Atom / VSCode あたりの方が高くみえるし、そうみえるから乗り換えようとしている。&lt;/p&gt;
+&lt;p&gt;なぜ Vim を使い続けてきたかというと一番快適に Vim キーバインドが使えるエディターは Vim だったというだけの理由である。次点で、軽量さ・軽快さ・クロスプラットホームをクリアーしているからだ。
+拡張性・将来性に関しては Atom / VS Code あたりの方が高くみえるし、そうみえるから乗り換えようとしている。&lt;/p&gt;
 
-&lt;p&gt;最近のモダンエディタは質の差はあれど Vim ライクなキーバインドを実現するプラグインは大抵存在する。Atom に関してはどうも軽量さ・軽快さに欠けていたので、一通り条件をクリアーしてそうなエディタとして VSCode に可能性を求めることにした。 (Sublime Text 3 に関しては最近評価できてないのでもしかしたら可能性あるかもしれないけど、現時点ではあまり興味ない)&lt;/p&gt;
+&lt;p&gt;最近のモダンエディターは質の差はあれど Vim ライクなキーバインドを実現するプラグインは大抵存在する。Atom に関してはどうも軽量さ・軽快さに欠けていたので、ひととおり条件をクリアーしてそうなエディターとして VS Code に可能性を求めることにした。（Sublime Text 3 に関しては最近評価できてないのでもしかしたら可能性あるかもしれないけど、現時点ではあまり興味ない）&lt;/p&gt;
 
 &lt;h3 id=&quot;visual-studio-code-の所感&quot;&gt;Visual Studio Code の所感&lt;/h3&gt;
 
-&lt;p&gt;まず軽量さについては、Vim のそれには圧倒的に劣るが他のモダンエディタに比べてもかなり軽い部類だ。拡張性については Vim に比べて用意されている UI コンポーネントが多いこともあって UI 的な表現力が高く、またそれを &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt; で書けるのは &lt;a href=&quot;https://ja.wikipedia.org/wiki/Vim_script&quot;&gt;Vim script&lt;/a&gt; と異なり馴染みがあってとっかかりやすい。
-Vim キーバインドについては &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot;&gt;VSCodeVim&lt;/a&gt; がなかなか頑張っていて他エディタの Vim プラグインより出来がよい方だと感じたし、割と違和感なく使えるものになっている。&lt;/p&gt;
+&lt;p&gt;まず軽量さについては、Vim のそれには圧倒的に劣るが他のモダンエディターに比べてもかなり軽い部類だ。拡張性については Vim に比べて用意されている UI コンポーネントが多いこともあって UI 的な表現力が高く、またそれを &lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt; で書けるのは &lt;a href=&quot;https://ja.wikipedia.org/wiki/Vim_script&quot;&gt;Vim script&lt;/a&gt; と異なり馴染みがあってとっかかりやすい。
+Vim キーバインドについては &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot;&gt;VSCodeVim&lt;/a&gt; がなかなか頑張っていて他エディターの Vim プラグインより出来がよい方だと感じたし、割と違和感なく使えるものになっている。&lt;/p&gt;
 
-&lt;p&gt;総合的な所感としては、Vim を超えているというよりは Vim が無くても生きていける環境がようやくできたという感触。一応コーディング用のエディタに求めるものは一通り揃っていて、実際ここ１ヶ月くらいはほぼ VSCode だけで生きていけている。&lt;/p&gt;
+&lt;p&gt;総合的な所感としては、Vim を超えているというよりは Vim が無くても生きていける環境がようやくできたという感触。一応コーディング用のエディターに求めるものはひととおり揃っていて、実際ここ1か月くらいはほぼ VS Code だけで生きていけている。&lt;/p&gt;
 
 &lt;p&gt;Visual Studio Code の微妙な点としては、&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;日本語の単語区切りに対応していない&lt;/li&gt;
-  &lt;li&gt;VSCodeVim について
+  &lt;li&gt;&lt;em&gt;VSCodeVim&lt;/em&gt; について
     &lt;ul&gt;
       &lt;li&gt;undo / redo の挙動がおかしい&lt;/li&gt;
       &lt;li&gt;Multi Cursor が考慮されてない&lt;/li&gt;
@@ -97,16 +268,16 @@ Vim キーバインドについては &lt;a href=&quot;https://marketplace.visua
 
 &lt;p&gt;いざとなったら &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=jonsmithers.open-in-vim&quot;&gt;Open in Vim&lt;/a&gt; というプラグインがあるのでいつでも本物の Vim に逃げることはできる。&lt;/p&gt;
 
-&lt;p&gt;なので、暫く VSCode メインで使っていこうとは思っているが Vim も引き続き使っていくことにはなりそうだ。&lt;/p&gt;
+&lt;p&gt;なので、暫く VS Code メインで使っていこうとは思っているが Vim も引き続き使っていくことにはなりそうだ。&lt;/p&gt;
 
 &lt;p&gt;Vim は不滅だ。&lt;/p&gt;
 
-&lt;h3 id=&quot;ライティング用のエディタについて&quot;&gt;ライティング用のエディタについて&lt;/h3&gt;
+&lt;h3 id=&quot;ライティング用のエディターについて&quot;&gt;ライティング用のエディターについて&lt;/h3&gt;
 
 &lt;p&gt;かなり特殊な例なのかもしれないけど、僕はコーディングの時は Vim、メール・メモなどの文章を書く時は Emacs を使いたいのだ。
 これもまた本物の Emacs である必要はなくて、Emacs キーバインドが使えれば良いだけなんだけど、これに関しての話もいろいろあるのでまた別記事で書きたいと思う。&lt;/p&gt;
 </description>
-        <pubDate>Sun, 06 May 2018 10:00:00 +0700</pubDate>
+        <pubDate>Sun, 06 May 2018 12:00:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2018/05/06/goodbye-vim/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2018/05/06/goodbye-vim/</guid>
         
@@ -119,7 +290,7 @@ Vim キーバインドについては &lt;a href=&quot;https://marketplace.visua
     
       <item>
         <title>Goodbye Mac and Vim</title>
-        <description>&lt;p&gt;趣味的にいろんな OS やエディタに手を出しつつも、わりと長い間 Mac と Vim をメインの開発環境としてきたのだが、ここ最近その牙城が崩れ今ではすっかり &lt;a href=&quot;https://www.ubuntu.com/&quot;&gt;Ubuntu&lt;/a&gt; と &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VSCode&lt;/a&gt; 中心な環境にシフトした。&lt;/p&gt;
+        <description>&lt;p&gt;趣味的にいろんな OS やエディターに手を出しつつも、わりと長い間 Mac と Vim をメインの開発環境としてきたのだが、ここ最近その牙城が崩れ今ではすっかり &lt;a href=&quot;https://www.ubuntu.com/&quot;&gt;Ubuntu&lt;/a&gt; と &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VSCode&lt;/a&gt; 中心な環境にシフトした。&lt;/p&gt;
 
 &lt;p&gt;わりと長い間というのは十数年なので僕のエンジニア人生の大部分を占めることになり、節目感じたので残しておく。&lt;/p&gt;
 
@@ -147,11 +318,11 @@ GUI としては、Win / Mac には劣るものの、一昔前に比べて様々
 
 &lt;p&gt;僕が今メインで利用しているのは &lt;a href=&quot;https://www3.lenovo.com/jp/ja/notebooks-new-splitter/ideapad/ideapad-700-series/Ideapad-720S-13-Intel/p/88IP70S0893&quot;&gt;Lenovo ideapad 720S (13.3インチ)&lt;/a&gt; だが 10万円切る価格で十分満足いくボディとスペックである。(できればメモリ16GB欲しいところではあるが)&lt;/p&gt;
 
-&lt;h3 id=&quot;エディタについて&quot;&gt;エディタについて&lt;/h3&gt;
+&lt;h3 id=&quot;エディターについて&quot;&gt;エディターについて&lt;/h3&gt;
 
-&lt;p&gt;常用エディタを GVim から Visual Studio Code にスイッチした件も書くつもりだったが長くなってきたので別に書くことにする。&lt;/p&gt;
+&lt;p&gt;常用エディターを GVim から Visual Studio Code にスイッチした件も書くつもりだったが長くなってきたので別に書くことにする。&lt;/p&gt;
 </description>
-        <pubDate>Sat, 05 May 2018 10:00:00 +0700</pubDate>
+        <pubDate>Sat, 05 May 2018 12:00:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2018/05/05/goodbye-mac-and-vim/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2018/05/05/goodbye-mac-and-vim/</guid>
         
@@ -200,7 +371,7 @@ GUI としては、Win / Mac には劣るものの、一昔前に比べて様々
   &lt;li&gt;&lt;a href=&quot;https://github.com/migrs/migrs.github.io&quot;&gt;生成されたコンテンツ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 20 Apr 2018 10:00:00 +0700</pubDate>
+        <pubDate>Fri, 20 Apr 2018 12:00:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-github-pages/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2018/04/20/setup-jekyll-and-github-pages/</guid>
         
@@ -305,7 +476,7 @@ GUI としては、Win / Mac には劣るものの、一昔前に比べて様々
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat ~/.ssh/id_rsa.pub | ssh -i ~/ec2.pem ec2-user@`ec2-host hoge` 'cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
-        <pubDate>Mon, 17 Feb 2014 08:00:00 +0700</pubDate>
+        <pubDate>Mon, 17 Feb 2014 10:00:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2014/02/17/ec2-pssh/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2014/02/17/ec2-pssh/</guid>
         
@@ -454,7 +625,7 @@ ec2-ssh web1 -t sudo service nginx restart
 
 &lt;p&gt;この記事には続きがあります。もっと便利な何かを紹介します。&lt;/p&gt;
 </description>
-        <pubDate>Thu, 14 Mar 2013 09:00:00 +0700</pubDate>
+        <pubDate>Thu, 14 Mar 2013 09:00:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2013/03/14/ec2-ssh/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2013/03/14/ec2-ssh/</guid>
         
@@ -504,7 +675,7 @@ ec2-ssh web1 -t sudo service nginx restart
 
 &lt;p&gt;腹が減っては何とやら、無事美味しいランチに辿りつけることを心よりお祈りしております。&lt;/p&gt;
 </description>
-        <pubDate>Tue, 24 Jul 2012 08:00:00 +0700</pubDate>
+        <pubDate>Tue, 24 Jul 2012 08:00:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2012/07/24/lldecade-lunch-spots/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/07/24/lldecade-lunch-spots/</guid>
         
@@ -816,7 +987,7 @@ FUJI ROCK が&lt;a href=&quot;http://www.princehotels.co.jp/ski/naeba/&quot;&gt;
 
 &lt;p&gt;※このページは開催までの間、次第随時更新予定です。&lt;/p&gt;
 </description>
-        <pubDate>Sat, 07 Jul 2012 05:45:00 +0700</pubDate>
+        <pubDate>Sat, 07 Jul 2012 05:45:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2012/07/07/jisan-valley-rock-festival-2012/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/07/07/jisan-valley-rock-festival-2012/</guid>
         
@@ -894,7 +1065,7 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
 
 &lt;p&gt;例えば、Elixir では次のように記述する：&lt;/p&gt;
 
-&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 1&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;second&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; 2&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -917,7 +1088,7 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;span class=&quot;no&quot;&gt;Printer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;baz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Printer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;baz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;また別のクールな例はリストが別のリストの接頭辞であるかどうかを確認する再帰的なメソッドだ：&lt;/p&gt;
@@ -934,8 +1105,8 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_prefix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;span class=&quot;no&quot;&gt;Prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; true&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; false&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;最後に、パターンマッチングは Ruby 2.0 で計画されている機能の一つであるキーワード引数を可能にする。
@@ -959,8 +1130,8 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
 &lt;p&gt;上記例において Erlang の変数は単一代入であることをまだ見せてなかった。
 これにより次のエラーが発生する：&lt;/p&gt;
 
-&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;これは bad match error を投げる。
@@ -1000,7 +1171,7 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 &lt;p&gt;この場合 ORM はよりよい API を提供することができそうだが、これは何度も繰り返されるパターンだ。
 たとえば、クッキーを変更するとレスポンスオブジェクトに明示的な変更が必要になる。&lt;/p&gt;
 
-&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;response1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tracker_code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;123456&quot;&lt;/span&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;response1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tracker_code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;いずれにせよ、不変性と単一代入変数を提供する言語での作業は経験する価値がある。
@@ -1043,7 +1214,7 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 
 &lt;p&gt;彼が言ったように、私たちは Ruby を愛し、そこからいますぐ離れるようなことは無いが、それを分岐したり新しい物事をしようとすることは言語とそのエコシステムを改善するための素晴らしい方法であり、Elixir がそのことについてさらに考える手助けになることを期待している。&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Mar 2012 00:33:00 +0700</pubDate>
+        <pubDate>Mon, 12 Mar 2012 00:33:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2012/03/12/why-rubyists-should-try-elixir/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/03/12/why-rubyists-should-try-elixir/</guid>
         
@@ -1321,90 +1492,12 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 &lt;/ul&gt;
 
 </description>
-        <pubDate>Mon, 16 Jan 2012 09:30:00 +0700</pubDate>
+        <pubDate>Mon, 16 Jan 2012 09:30:00 +0900</pubDate>
         <link>https://m.igrs.jp//blog/2012/01/16/powder-powify-comparison/</link>
         <guid isPermaLink="true">https://m.igrs.jp//blog/2012/01/16/powder-powify-comparison/</guid>
         
         
         <category>pow</category>
-        
-      </item>
-    
-      <item>
-        <title>PHPより気軽に、Rubyで簡単ウェブ開発</title>
-        <description>&lt;p&gt;元旦に &lt;a href=&quot;http://github.com/migrs/rack-server-pages&quot;&gt;rack-server-pages&lt;/a&gt; というものを&lt;a href=&quot;http://rubygems.org/gems/rack-server-pages&quot;&gt;リリース&lt;/a&gt;しました。&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot;&gt;&lt;p&gt;元旦リリースしました。僕からのお年玉です。 &amp;gt; rack-server-pages &lt;a href=&quot;http://t.co/MODtXuOL&quot; title=&quot;http://j.mp/uNthnL&quot;&gt;j.mp/uNthnL&lt;/a&gt; &lt;a href=&quot;https://twitter.com/search/%2523ruby&quot;&gt;#ruby&lt;/a&gt;&lt;/p&gt;&amp;mdash; Masato Igarashi (@migrs) &lt;a href=&quot;https://twitter.com/migrs/status/153393608664424448&quot; data-datetime=&quot;2012-01-01T08:34:20+00:00&quot;&gt;January 1, 2012&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;実は数年前からずっと作りたいと思っていたもので個人ToDoリストに長らく居座っていたものがやっと着手できた。&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;Ruby で WEB開発といえば &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt; というデファクトスタンダードを筆頭に
-MVCフレームワークを利用するのが一般的ですが、現状フレームワークを利用しないという選択肢がほとんど無いんですよね。&lt;/p&gt;
-
-&lt;p&gt;フレームワークというキーワードを聞くだけで「よく分からない」「プログラマの為のもの」
-感覚になってしまう人も多いはずです。
-たとえシンプルで軽量といわれている &lt;a href=&quot;http://sinatrarb.com/&quot;&gt;Sinatra&lt;/a&gt; ですら。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://php.net/&quot;&gt;PHP&lt;/a&gt; が初心者やデザイナーも含め広く受け入れられたのは
-HTMLファイルの延長のような感覚で扱えたからというのも一つの大きな要因でしょう。&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot;&gt;&lt;p&gt;PHPは言語仕様以外の部分は別に悪いと思ってないし、Better PHP として mod_ruby + erb のような構成はあっても良いはずと昔から思っている&lt;/p&gt;&amp;mdash; Masato Igarashi (@migrs) &lt;a href=&quot;https://twitter.com/migrs/status/99322027403526145&quot; data-datetime=&quot;2011-08-05T03:33:11+00:00&quot;&gt;August 5, 2011&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;同じように思っている人もいるようで、&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.ruby-forum.com/topic/82003&quot;&gt;super simple serving of ruby pages&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;I’m starting to teach my 8yr daughter Ruby. We’ve covered HTML and CSS
-already and she handcoded her own static website. I’d like to
-incorporate her Ruby learning experience into her website, which is
-much more interesting for her than using Ruby to write scripts or
-desktop apps. She’s just starting out, so Rails is much too complicated
-for her. She’s not ready for the whole MVC concept yet. What I’d like
-to do is to run very simple Ruby scripts from the site and incorporate
-Ruby code into rhtml files, but without Rails. I don’t really want a
-“framework”, just the ability to run a ruby file that will serve up an
-rhtml file. In other words, something very simple like PHP (I don’t
-want to teach her PHP). [I’ll get into Rails later once she’s more
-advanced.]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.codingforums.com/showthread.php?t=230780&quot;&gt;how do you create a simple web page with ruby?&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;I know how to set up html web sites. I started learning php, and it’s really easy to create a php web page. You just name the file extension .php, and then you intersperse any php code you want in the html with &lt;?php .... ?&gt;. You throw the page up on the web, and it works exactly like you think it would.&lt;/p&gt;
-
-  &lt;p&gt;But I have &lt;em&gt;no idea&lt;/em&gt; how to set up a simple “hello world” web page in ruby.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;このような需要を満たす為に作りました。&lt;/p&gt;
-
-&lt;p&gt;もちろん効率的なWEB開発にはフレームワークは必要不可欠なのですが必要の無いケースも多々あるし、
-何より気軽に体験できる環境を提供したかったのです。&lt;/p&gt;
-
-&lt;p&gt;幸運なことに &lt;a href=&quot;http://github.com/rack/rack&quot;&gt;Rack&lt;/a&gt; や &lt;a href=&quot;http://github.com/github.com/rtomayko/tilt&quot;&gt;Tilt&lt;/a&gt; という強力で素晴らしい資産のおかげで
-気軽さだけではなく実用性も兼ね備えることが出来ました。&lt;/p&gt;
-
-&lt;p&gt;特に &lt;a href=&quot;http://pow.cx&quot;&gt;Pow&lt;/a&gt;, &lt;a href=&quot;http://github.com/migrs/rack-server-pages&quot;&gt;Rack Server Pages&lt;/a&gt; の組み合わせはWEBデザイナーな人にも是非体験して欲しい環境で、
-&lt;a href=&quot;http://sass-lang.com/&quot;&gt;Sass&lt;/a&gt;, &lt;a href=&quot;http://slim-lang.com/&quot;&gt;Slim&lt;/a&gt;, &lt;a href=&quot;http://jashkenas.github.com/coffee-script/&quot;&gt;CoffeeScript&lt;/a&gt; 等、ほぼプログラマ向けになってしまっている技術が気軽に活用でき少し幸せになれるはず。&lt;/p&gt;
-
-&lt;p&gt;ここでは紹介まで。&lt;/p&gt;
-
-&lt;p&gt;日本語のドキュメントが全くないので（実際 &lt;a href=&quot;https://github.com/migrs/rack-server-pages/watchers&quot;&gt;Watchers&lt;/a&gt; も外国の方ばかり）少しずつ書いていければと。（誰か私に文章力と英語力を！）&lt;/p&gt;
-
-&lt;p&gt;まだまだ発展途上ですが、問題・不具合あれば&lt;a href=&quot;https://github.com/inbox/new/migrs&quot;&gt;連絡&lt;/a&gt;・&lt;a href=&quot;https://github.com/migrs/rack-server-pages/issues&quot;&gt;フィードバック&lt;/a&gt;お願いします。&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 06 Jan 2012 07:09:00 +0700</pubDate>
-        <link>https://m.igrs.jp//blog/2012/01/06/rack-server-pages-released/</link>
-        <guid isPermaLink="true">https://m.igrs.jp//blog/2012/01/06/rack-server-pages-released/</guid>
-        
-        
-        <category>rack-server-pages</category>
-        
-        <category>ruby</category>
         
       </item>
     

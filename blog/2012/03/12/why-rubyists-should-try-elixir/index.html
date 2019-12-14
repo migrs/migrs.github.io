@@ -130,7 +130,7 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
 
 <p>例えば、Elixir では次のように記述する：</p>
 
-<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">first</span> <span class="c1"># =&gt; 1</span>
 <span class="n">second</span> <span class="c1"># =&gt; 2</span>
 </code></pre></div></div>
@@ -153,7 +153,7 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
   <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="no">Printer</span><span class="o">.</span><span class="n">print</span> <span class="p">[</span><span class="sd">"</span><span class="s2">foo"</span><span class="p">,</span> <span class="sd">"</span><span class="s2">bar"</span><span class="p">,</span> <span class="sd">"</span><span class="s2">baz"</span><span class="p">]</span>
+<span class="no">Printer</span><span class="o">.</span><span class="n">print</span> <span class="p">[</span><span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p>また別のクールな例はリストが別のリストの接頭辞であるかどうかを確認する再帰的なメソッドだ：</p>
@@ -170,8 +170,8 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
   <span class="k">def</span> <span class="n">is?</span><span class="p">(</span><span class="n">_prefix</span><span class="p">,</span> <span class="n">_list</span><span class="p">)</span> <span class="k">do</span> <span class="no">false</span> <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="no">Prefix</span><span class="o">.</span><span class="n">is?</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">],</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">])</span> <span class="c1"># =&gt; true</span>
-<span class="no">Prefix</span><span class="o">.</span><span class="n">is?</span><span class="p">([</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">],</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">])</span> <span class="c1"># =&gt; false</span>
+<span class="no">Prefix</span><span class="o">.</span><span class="n">is?</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> <span class="c1"># =&gt; true</span>
+<span class="no">Prefix</span><span class="o">.</span><span class="n">is?</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> <span class="c1"># =&gt; false</span>
 </code></pre></div></div>
 
 <p>最後に、パターンマッチングは Ruby 2.0 で計画されている機能の一つであるキーワード引数を可能にする。
@@ -195,8 +195,8 @@ Elixir は最近になって開発が活発化しており、公式サイトも�
 <p>上記例において Erlang の変数は単一代入であることをまだ見せてなかった。
 これにより次のエラーが発生する：</p>
 
-<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
-<span class="n">first</span> <span class="o">=</span> <span class="m">10</span>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">first</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div></div>
 
 <p>これは bad match error を投げる。
@@ -236,7 +236,7 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
 <p>この場合 ORM はよりよい API を提供することができそうだが、これは何度も繰り返されるパターンだ。
 たとえば、クッキーを変更するとレスポンスオブジェクトに明示的な変更が必要になる。</p>
 
-<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response1</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">set</span> <span class="sd">"</span><span class="s2">tracker_code"</span><span class="p">,</span> <span class="sd">"</span><span class="s2">123456"</span>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response1</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">set</span> <span class="s2">"tracker_code"</span><span class="p">,</span> <span class="s2">"123456"</span>
 </code></pre></div></div>
 
 <p>いずれにせよ、不変性と単一代入変数を提供する言語での作業は経験する価値がある。
@@ -295,7 +295,14 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
                     <h4> Masato Igarashi </h4>
                     <!-- Author Bio -->
                     <p>
-                        Here goes the author description. You might want to place some links too in here
+
+                        Programmer, runner, traveler, lover of music and beer. OPENLOGI Inc. CTO.
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/migrs">Twitter</a>
+                        <a href="https://facebook.com/migrs">Facebook</a>
+                        <a href="https://github.com/migrs">GitHub</a>
+                        <a href="/about/">About</a>
                     </p>
                 </section>
             
@@ -329,7 +336,7 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
     <footer class="site-footer clearfix">
       <section class="copyright">
         <a href="/">m.igrs.jp</a> &copy;
-              2018 &bull; All rights reserved.
+              2019 &bull; All rights reserved.
       </section>
       <section class="poweredby">Made with Jekyll using
         <a href="http://github.com/rosario/kasper">Kasper theme</a>
@@ -339,7 +346,9 @@ Railsアプリケーションで作業するとき可変性は一般的に問題
     <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="/assets/js/index.js"></script>
-
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=2"></' + 'script>')
+    </script>
     <!-- Google Analytics Tracking code -->
     <script type="text/javascript">
 

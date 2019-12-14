@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    
+    <title>Vimacs - VS Code で Vim と Emacs のいいとこどり - m.igrs.jp</title>
+    
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" />
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+    <link rel="canonical" href="https://m.igrs.jp/blog/2019/12/14/vimacs-for-vscode/"/>
+
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="home-template">
+
+    <header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="/">Home</a>
+        <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Vimacs - VS Code で Vim と Emacs のいいとこどり</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2019-12-14">14 Dec 2019</time>
+                
+                    on vscode, vim, emacs, and vimacs
+                
+            </section>
+        </header>
+
+<!--         <header class="post-header">
+            <a id="blog-logo" href="https://m.igrs.jp">
+                
+                    <span class="blog-title"></span>
+                
+            </a>
+        </header> -->
+
+        <!-- <span class="post-meta">
+            <time datetime="2019-12-14">14 Dec 2019</time>
+            
+                on vscode, vim, emacs, and vimacs
+            
+        </span> -->
+
+        <!-- <h1 class="post-title">Vimacs - VS Code で Vim と Emacs のいいとこどり</h1> -->
+
+        <section class="post-content">
+            <p>昨年からメインエディターを <a href="http://localhost:4000/blog/2018/05/06/goodbye-vim/">Vim から VS Code に移行した</a>のですが、やはり Vim キーバインドからは逃れられず基本的には <a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">Vim 拡張</a> を利用して過ごしています。</p>
+
+<p>また普段の Vim ではインサートモード時に基本的な Emacs キーバインディングを使えるようにカスタマイズしているのですが、それは別途キーバインディングファイル（<code class="highlighter-rouge">keybindings.json</code>）をカスタマイズすることで実現できていました。</p>
+
+<p>今回は、そんなニッチな設定だけど同じようなことをしている人は他にもいるはずだし、オススメのスタイルなのでぜひみんなにも使って欲しいという思いから VS Code 拡張を作ったので紹介します。</p>
+
+<h2 id="vimacs-for-vs-code">Vimacs for VS Code</h2>
+
+<p><img src="https://raw.githubusercontent.com/migrs/vscode-vimacs/master/images/icon.png" alt="" /></p>
+
+<p><a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">VSCodeVim</a> のインサートモードで基本的な Emacs キーバインディングを利用できるようにする VS Code 拡張です。
+（<em>VSCodeVim</em> のアイコンをベースにしてますが、作者から許可は得ています）</p>
+
+<ul>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=migrs.vimacs#review-details">Vimacs for VS Code</a> (Visual Studio Code Marketplace)</li>
+  <li><a href="https://github.com/migrs/vscode-vimacs">vscode-vimacs</a> (GitHub)</li>
+</ul>
+
+<h3 id="original-vimacs">Original Vimacs</h3>
+
+<p>Vimacs という名前ですがもともと Vim Plugin として同様の名前のものがありました。</p>
+
+<ul>
+  <li><a href="http://algorithm.com.au/code/vimacs/">Vimacs: Vim-Improved Emacs</a></li>
+  <li><a href="https://github.com/andrep/vimacs">github.com/andrep/vimacs</a></li>
+</ul>
+
+<p>コンセプトがほぼ同じということで <em>for VS Code</em> として名前を継承しつつ、よりシンプルな実装としました。</p>
+
+<h3 id="why-use-vimacs">Why use Vimacs?</h3>
+
+<p>Vim の最大の特徴はノーマルモードやブロックモードにおけるキーバインディングにあると思っていて、学習ハードルは高いものの一度その操作に慣れるとテキスト編集ツールとしては右に出るものがないくらい強力なツールとしてその威力を発揮します。</p>
+
+<p>一方、インサートモードの実装は非常にシンプルで、ノーマルモードで編集することを前提としているのでコンセプトとしては理解できるのですが、入力・修正を繰り返すようなテキスト編集を行う際に頻度の高いモード切替は煩わしく感じることがあります。</p>
+
+<p>また、macOS のほぼすべてのテキスト編集コンポーネントではシンプルな Emacs キーバインドが利用できるようになっていたり、シェル操作でも Emacs ベースなものが標準的になっていたりすることもあって、文字入力においては Emacs キーバインドの方が慣れ親しまれたものとなっています。</p>
+
+<p>ということで、Vim のインサートモードのときに基本的な Emacs キーバインディングが利用できるようにすることで両者のメリットをいいところどりしてちょっと幸せになれるハイブリッドスタイルを提唱します。</p>
+
+<h3 id="やりたいこと">やりたいこと</h3>
+
+<ul>
+  <li>ベースの環境としては VS Code を使いたい</li>
+  <li>カーソル操作は Vim キーバインドを使いたい</li>
+  <li>文字入力時は Emacs キーバインドを使いたい</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">-</th>
+      <th>命令</th>
+      <th>編集</th>
+      <th>入力</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><em>Vim</em></td>
+      <td>Command Mode</td>
+      <td>Normal/Visual Mode</td>
+      <td>Insert Mode</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><em>Vimacs</em></td>
+      <td>VS Code</td>
+      <td>Vim</td>
+      <td>Emacs</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Vim がコンテキストごとに各モードを使い分けるのと同じよな感覚でに各エディターを使い分けるイメージです。</p>
+
+<h3 id="コンセプト">コンセプト</h3>
+
+<ul>
+  <li>コマンド系のキーバインドは VS Code 標準のものを利用する</li>
+  <li><em>VSCodeVim</em> をベースとして基本的にインサートモードのときだけ Emacs キーバインドを定義</li>
+</ul>
+
+<h3 id="できること">できること</h3>
+
+<ul>
+  <li>インサートモードで基本的な Emacs キーバインディングが使える</li>
+  <li>カーソル移動以外ではリージョン操作系にも対応</li>
+  <li>VS Code のコマンド入力やファイル選択のUIでも <code class="highlighter-rouge">Ctrl+N</code>, <code class="highlighter-rouge">Ctrl+P</code> などのカーソル移動に対応</li>
+</ul>
+
+<h3 id="てきてないこと">てきてないこと</h3>
+
+<ul>
+  <li>キーバインディングが重複定義されたときの優先順の制御の仕様がよくわかっておらず、意図通り動かないキーバインディングがいくつかある
+    <ul>
+      <li><code class="highlighter-rouge">keybindings.json</code> の方で再度定義したり邪魔なものを無効にしたりすることで回避している</li>
+    </ul>
+  </li>
+  <li>Column Region Mode も実装してみたのですがまともに動いてなかったのでいったん取り下げてます</li>
+</ul>
+
+<p>Pull Request お待ちしております</p>
+
+<h3 id="設定例">設定例</h3>
+
+<p>参考までに私の <em>VSCodeVim</em> 個人設定（<code class="highlighter-rouge">settings.json</code>）では以下のような設定となっています。Vimacs 独自の設定項目はとくにありません。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"vim.useCtrlKeys"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.overrideCopy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.hlsearch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.useSystemClipboard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.visualstar"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.handleKeys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"&lt;C-f&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"&lt;C-b&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"&lt;C-u&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"&lt;C-r&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"&lt;C-v&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"&lt;C-[&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"&lt;C-w&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"vim.cursorStylePerMode.normal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"block"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.cursorStylePerMode.insert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"line-thin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.cursorStylePerMode.replace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"block-outline"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vim.statusBarColorControl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="その他注意点">その他注意点</h3>
+
+<ul>
+  <li><em>VSCodeVim</em> の Undo 履歴管理はちょっと挙動があやしいので VS Code 標準のキーバインド（<code class="highlighter-rouge">Cmd+Z</code>, <code class="highlighter-rouge">Cmd+Shift+Z</code>）を利用するのがオススメです</li>
+</ul>
+
+<h2 id="公開後の反応">公開後の反応</h2>
+
+<p>昨年ひっそりリリースしてから1年以上経っているわけですが、ありがたいことに反応もあったようなのでいくつかピックアップしておきます。</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/%E4%BB%8A%E6%97%A5%E3%81%AEVSCode?src=hash&amp;ref_src=twsrc%5Etfw">#今日のVSCode</a><br />Extensionをながめていたらviemacsというすてきなものがあった。Vim+Emacsである。<a href="https://t.co/fQgcDc2pgz">https://t.co/fQgcDc2pgz</a></p>&mdash; 結城浩 (@hyuki) <a href="https://twitter.com/hyuki/status/1083686907203117056?ref_src=twsrc%5Etfw">January 11, 2019</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>なんと、あの結城先生が言及してくれているではないですか！！（感激）</p>
+
+<hr />
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">VimacsはVimでEmacsｷｰﾊﾞｲﾝﾄﾞを使えるようにするやつだけど、VSCodeでVimのｷｰﾊﾞｲﾝﾄﾞをやるやつは活発に作られてるけど、Emacsのはなんか今いちだから（？）VSCodeのVimプラグインの上に乗っかったVimacsが出てきた…？</p>&mdash; Hideyuki Tanaka (@tanakh) <a href="https://twitter.com/tanakh/status/1019622585074503680?ref_src=twsrc%5Etfw">July 18, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>理由はちょっと違いますが・・・</p>
+
+<hr />
+<p><a href="https://marketplace.visualstudio.com/items?itemName=migrs.vimacs&amp;ssr=false#review-details"><img src="/assets/images/posts/1bd494a8576c3fe73994e5da7388c81d.png" alt="" /></a>
+少ないですがポジティブなレビューはやはり嬉しいものです</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <!-- If we want to display author's name and bio -->
+            
+                <figure class="author-image">
+                    <a class="img" href="/" style="background-image: url(/assets/images/migrs.jpg)">
+                    <span class="hidden">Masato Igarashi's Picture</span></a>
+                </figure>
+                <section class="author">
+                    <!-- Author Name -->
+                    <h4> Masato Igarashi </h4>
+                    <!-- Author Bio -->
+                    <p>
+
+                        Programmer, runner, traveler, lover of music and beer. OPENLOGI Inc. CTO.
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/migrs">Twitter</a>
+                        <a href="https://facebook.com/migrs">Facebook</a>
+                        <a href="https://github.com/migrs">GitHub</a>
+                        <a href="/about/">About</a>
+                    </p>
+                </section>
+            
+
+            <!-- Share links section -->
+            <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?text=Vimacs - VS Code で Vim と Emacs のいいとこどり&amp;url=https://m.igrs.jp/blog/2019/12/14/vimacs-for-vscode/"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://m.igrs.jp/blog/2019/12/14/vimacs-for-vscode/"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://m.igrs.jp/blog/2019/12/14/vimacs-for-vscode/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+            <!-- Disqus comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+    <footer class="site-footer clearfix">
+      <section class="copyright">
+        <a href="/">m.igrs.jp</a> &copy;
+              2019 &bull; All rights reserved.
+      </section>
+      <section class="poweredby">Made with Jekyll using
+        <a href="http://github.com/rosario/kasper">Kasper theme</a>
+      </section>
+    </footer>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=2"></' + 'script>')
+    </script>
+    <!-- Google Analytics Tracking code -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-655787-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</body>
+</html>
